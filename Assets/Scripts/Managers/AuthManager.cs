@@ -1,16 +1,21 @@
 using UnityEngine;
 
-public class AuthManager : MonoSingle<AuthManager>
+namespace Constants
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class AuthManager : MonoSingle<AuthManager>
     {
+        public bool loggedIn = false;
+        public bool authFinished = false;
+        void Start()
+        {
+            
+        }
+    
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        void Update()
+        {
+            
+        }
     }
 }
+
