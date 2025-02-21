@@ -55,6 +55,8 @@ MonoBehaviour:
   dialogs:
   - name: 0
     prefab: {fileID: 4618092412750157791, guid: 89e424bb86a796542a482e7a245c4d20, type: 3}
+  - name: 4
+    prefab: {fileID: 4618092412750157791, guid: d5fa75bcde858cf4496aaf396bde38b1, type: 3}
 --- !u!1 &5425766410232947903
 GameObject:
   m_ObjectHideFlags: 0

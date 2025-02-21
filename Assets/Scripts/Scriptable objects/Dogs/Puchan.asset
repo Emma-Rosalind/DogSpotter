@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sittingSprite: {fileID: 4280220946237243861, guid: cf9ae8a8d516731439bbec2ab29445aa, type: 3}
   sleepingSprite: {fileID: 4280220946237243861, guid: cf9ae8a8d516731439bbec2ab29445aa, type: 3}
-  nickName: 0
+  key: 0
+  fullName: Good Boy

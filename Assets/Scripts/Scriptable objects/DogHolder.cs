@@ -8,6 +8,7 @@ public class DogHolder : ScriptableObject
     public Sprite sittingSprite;
     public Sprite sleepingSprite;
     
-    public DogStates.DogName nickName;
+    public DogStates.DogName key;
+    public string fullName;
     
 }

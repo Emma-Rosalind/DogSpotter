@@ -19,6 +19,7 @@ public class PopupManager : MonoSingle<PopupManager>
         Store = 1,
         ItemShop = 2,
         Book = 3,
+        Bag = 4,
         
     }
     [SerializeField] private Transform popupContainer;
