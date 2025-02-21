@@ -12,16 +12,16 @@ namespace Managers
         {
             public int Balance;
             public int PremiumBalance;
-            public Dictionary<DogStates.DogName, int> DogCounter;
-            public Dictionary<ItemStates.ItemName, int> ItemInventory;
-            public Dictionary<ItemStates.FolliageName, int> TreeInventory;
+            public Dictionary<DogStates.DogName, int> DogCounter = new Dictionary<DogStates.DogName, int>();
+            public Dictionary<ItemStates.ItemName, int> ItemInventory = new Dictionary<ItemStates.ItemName, int>();
+            public Dictionary<ItemStates.FolliageName, int> TreeInventory = new Dictionary<ItemStates.FolliageName, int>();
         }
         
         //Extra data that is only stored localy
         class TransformPlayerData
         {
-            public Dictionary<DogStates.DogName, int[]> DogCounter;
-            public Dictionary<ItemStates.ItemName, int[]> ItemInventory;
+            public Dictionary<DogStates.DogName, int[]> DogPositions = new Dictionary<DogStates.DogName, int[]>();
+            public Dictionary<ItemStates.ItemName, int[]> ItemInventory= new Dictionary<ItemStates.ItemName, int[]>();
             List<KeyValuePair<ItemStates.FolliageName, int[]>> TreeInventory = new List<KeyValuePair<ItemStates.FolliageName, int[]>>(); //can be multiple
         }
         
@@ -39,9 +39,22 @@ namespace Managers
             StorePlayerData();
         }
         
-        public void UpdateTranform(int balance)
+        public void UpdatePremiumBalance(int balance)
         {
-            _playerData.Balance = balance;
+            _playerData.PremiumBalance = balance;
+            StorePlayerData();
+        }
+        
+        public void UpdateDogPos(DogStates.DogName dogName, Transform pos)
+        {
+           var array = new int[2] {(int)pos.position.x, (int)pos.position.y};
+            _transformPlayerData.DogPositions[dogName] = array;
+            StorePlayerData();
+        }
+        
+        public void RemoveDog(DogStates.DogName dogName)
+        {
+            _transformPlayerData.DogPositions.Remove(dogName);
             StorePlayerData();
         }
         
@@ -50,6 +63,8 @@ namespace Managers
             if (!ReadLocalPlayerData())
             {
                 //Try to load from online
+                _playerData = new PlayerData();
+                _transformPlayerData = new TransformPlayerData();
                 return false;
             }
             else
