@@ -292,7 +292,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 2.48
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -560,6 +560,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48956901a0c1482d8e42268116f810f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggedIn: 0
+  authFinished: 0
 --- !u!114 &531012675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1067,10 +1069,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 591710641}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -114, y: -112}
-  m_SizeDelta: {x: 196.6664, y: 192.2049}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 186, y: 78.5}
+  m_SizeDelta: {x: 196.6664, y: 193.2049}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1822332023
 MonoBehaviour:
