@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Events;
 using UnityEngine;
 
@@ -20,6 +21,7 @@ namespace Managers
         {
             public ItemStates.ItemName key;
             public Vector2 position;
+            public int id;
         }
         
 
@@ -47,22 +49,33 @@ namespace Managers
            // }
             
             //Temp while no player data
-            AddToInventory(ItemStates.ItemName.BlueCarpet);
+            AddToInventoryFromShop(ItemStates.ItemName.BlueCarpet);
 
         }
         
-        public void AddToInventory(ItemStates.ItemName key)
+        public void AddToInventoryFromShop(ItemStates.ItemName key)
         {
             itemInventory.Add(key);
         }
         
-        public void RemoveToPlace(ItemStates.ItemName key, Vector2 place)
+        public void AddToInventoryFromFloor(ItemStates.ItemName key, int id)
         {
+            itemInventory.Add(key);
+            var item = itemsPlaced.First(x => x.id == id);
+            itemsPlaced.Remove(item);
+        }
+        
+        public int RemoveToPlace(ItemStates.ItemName key, Vector2 place)
+        {
+            var count = itemsPlaced.Count(x => x.key == key);
             var item = new ItemData();
             item.key = key;
             item.position = place;
+            item.id = count;
             itemsPlaced.Add(item);
             itemInventory.Remove(key);
+            
+            return count;
         }
 
     }

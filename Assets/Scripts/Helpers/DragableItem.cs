@@ -8,6 +8,7 @@ using Image = UnityEngine.UI.Image;
 
 public class DragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler
 {
+    [SerializeField] private Transform icon;
     
     private List<Image> _children = new List<Image>(); 
     private float _ogScale = -1.0f;
@@ -45,12 +46,12 @@ public class DragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public void OnPointerDown(PointerEventData eventData)
     {
         if (_ogScale < 0f) _ogScale = transform.localScale.x;
-        transform.DOScale(_ogScale * 1.3f, TweenTime).SetEase(Ease.InExpo);
+        icon.DOScale(_ogScale * 1.3f, TweenTime).SetEase(Ease.InExpo);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        transform.DOScale(_ogScale, TweenTime).SetEase(Ease.InExpo);
+        icon.DOScale(_ogScale, TweenTime).SetEase(Ease.InExpo);
     }
     
     //UTILS

@@ -24,11 +24,11 @@ namespace Scenes
 
         public void StartEditModeWithObject(ItemHolder item)
         {
-            InventoryManager.Instance.RemoveToPlace(item.key, editLayer.position);
+            var id = InventoryManager.Instance.RemoveToPlace(item.key, editLayer.position);
             //spawn object
             var obj = Instantiate(itemPrefab, editLayer);
             var newItem = obj.GetComponent<UI_Item>();
-            newItem.SpawnFromItem(item);
+            newItem.SpawnFromItem(item, id);
               
             //Reset scroll rect
             StartEditMode();
