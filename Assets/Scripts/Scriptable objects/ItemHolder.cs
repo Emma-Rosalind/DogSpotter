@@ -14,4 +14,14 @@ public class ItemHolder : ScriptableObject
     public int coinPrice;
     public int treatPrice;
 
+    public int GetPrice()
+    {
+        return treatPrice > 0 ? treatPrice : coinPrice;
+    }
+    
+    public bool PriceInTreats()
+    {
+        return treatPrice > 0;
+    }
+
 }

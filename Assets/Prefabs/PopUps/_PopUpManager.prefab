@@ -57,6 +57,10 @@ MonoBehaviour:
     prefab: {fileID: 4618092412750157791, guid: 89e424bb86a796542a482e7a245c4d20, type: 3}
   - name: 4
     prefab: {fileID: 4618092412750157791, guid: d5fa75bcde858cf4496aaf396bde38b1, type: 3}
+  - name: 1
+    prefab: {fileID: 4618092412750157791, guid: 9e551e06b658e9047996d3d4326dcd01, type: 3}
+  - name: 5
+    prefab: {fileID: 4618092412750157791, guid: bb8f07518bb16c543abfc5dabce4351a, type: 3}
 --- !u!1 &5425766410232947903
 GameObject:
   m_ObjectHideFlags: 0

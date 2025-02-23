@@ -1,41 +1,53 @@
 using UnityEngine;
 using Events;
+using Managers;
 
 public class BalanceManager : MonoSingle<BalanceManager>
 {
 
     public int balance {get; private set; }
+    public int treatBalance {get; private set; }
     
-    public float ToppingsPrice {get; private set; }
-
+    private string  BALANCE = "Balance";
     void Start()
     {
-        balance = PlayerPrefs.GetInt("balance");
-        PlayerPrefs.SetInt("Balance", 0);
+        balance = PlayerDataManager.Instance._playerData.Balance;
+        balance = PlayerDataManager.Instance._playerData.PremiumBalance;
+        GameEvent.m_BalanceChange.Invoke();
     }
 
-    public void BuyTopping(float amount)
+    public void BuyItem(int amount, bool isTreat)
     {
-        ToppingsPrice += amount;
+        if (isTreat)
+        {
+            SubTreatBalance(amount);
+        }
+        else
+        {
+            SubBalance(amount);
+        }
     }
 
-    public void AddBalance(int change)
+    private void AddBalance(int change, bool needsCloud = false)
     {
-        balance = balance + change;
-        UpdateBalance(balance);
+        balance += change;
+        BalanceEvent();
+        PlayerDataManager.Instance.UpdateBalance(balance, needsCloud);
     }
     
-    public void SubBalance(int change)
+    private void AddTreatBalance(int change, bool needsCloud = false)
     {
-        balance = balance - change;
-        UpdateBalance(balance);
+        treatBalance += change;
+        BalanceEvent();
+        PlayerDataManager.Instance.UpdatePremiumBalance(treatBalance, needsCloud);
     }
     
-    private void UpdateBalance(int newBalance)
+    private void SubBalance(int change) => AddBalance(change * -1);
+    private void SubTreatBalance(int change) => AddTreatBalance(change * -1);
+
+    
+    private void BalanceEvent()
     {
-        PlayerPrefs.SetInt("Balance", newBalance);
-        PlayerPrefs.Save();
-        
         GameEvent.m_BalanceChange.Invoke();
     }
 }

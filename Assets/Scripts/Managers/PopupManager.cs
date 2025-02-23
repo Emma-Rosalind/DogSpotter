@@ -17,9 +17,9 @@ public class PopupManager : MonoSingle<PopupManager>
     {
         Settings = 0,
         Store = 1,
-        ItemShop = 2,
         Book = 3,
         Bag = 4,
+        PurchaseConfirm = 5,
         
     }
     [SerializeField] private Transform popupContainer;

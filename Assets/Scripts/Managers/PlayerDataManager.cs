@@ -31,16 +31,16 @@ namespace Managers
         public TransformPlayerData _transformPlayerData {private set; get; }
 
 
-        public void UpdateBalance(int balance)
+        public void UpdateBalance(int balance, bool needsCloud = false)
         {
             _playerData.Balance = balance;
-            StorePlayerData();
+            StorePlayerData(needsCloud);
         }
         
-        public void UpdatePremiumBalance(int balance)
+        public void UpdatePremiumBalance(int balance, bool needsCloud = false)
         {
             _playerData.PremiumBalance = balance;
-            StorePlayerData();
+            StorePlayerData(needsCloud);
         }
         
         public void UpdateDogPos(DogStates.DogName dogName, Transform pos)

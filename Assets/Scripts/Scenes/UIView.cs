@@ -44,6 +44,11 @@ namespace Scenes
         {
             GameView.Instance.EndEditMode();
         }
+        
+        public void OnShopClicked()
+        {
+            PopupManager.Instance.Open(PopupManager.DialogName.Store);
+        }
 
     }
 }
