@@ -50,6 +50,7 @@ namespace Managers
             
             //Temp while no player data
             AddToInventoryFromShop(ItemStates.ItemName.BlueCarpet);
+            AddToInventoryFromShop(ItemStates.ItemName.PinkCarpet);
 
         }
         

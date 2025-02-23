@@ -33,6 +33,12 @@ namespace Scriptable_objects.Items
         {
             GameEvent.EditMode.AddListener(OnEditChange);
         }
+        
+        private void OnDestroy()
+        {
+            GameEvent.EditMode.RemoveListener(OnEditChange);
+            GameEvent.EditItemSelected.RemoveListener(OnOtherItemSelected);
+        }
 
         private void Init()
         {
@@ -41,10 +47,12 @@ namespace Scriptable_objects.Items
 
         public void SpawnFromItem(ItemHolder info, int id)
         {
-            TurnOnEdit();
             _itemInfo = info;
+            TurnOnEdit();
             _id = id;
             Init();
+            selectButton.onClick.AddListener(SelectForEdit);
+            selectButton.enabled = true;
         }
         
         
@@ -57,6 +65,7 @@ namespace Scriptable_objects.Items
         private void OnOtherItemSelected()
         {
             TurnOffAndAttemptPlace();
+            selectButton.onClick.AddListener(SelectForEdit);
             selectButton.enabled = true;
         }
 
