@@ -1,12 +1,13 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
     public class BagItem : MonoBehaviour
     {
-        [SerializeField] Sprite _sprite;
-
+        [SerializeField] Image sprite;
+        [SerializeField] Image shadow;
 
         public void init(ItemHolder itemInfo)
         {
@@ -16,13 +17,15 @@ namespace UI
                 return;
             }
 
-            _sprite = itemInfo.sprite;
+            sprite.sprite = itemInfo.sprite;
+            shadow.sprite  = itemInfo.sprite;
+            
         }
 
 
         private void DiableSlot()
         {
-            _sprite.GameObject().SetActive(false);
+            sprite.sprite .GameObject().SetActive(false);
         }
     }
 }

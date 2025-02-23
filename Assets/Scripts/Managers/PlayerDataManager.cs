@@ -8,29 +8,27 @@ namespace Managers
     {
         
         //Player data that is periodicly uploaded
-        class PlayerData
+        public class PlayerData
         {
             public int Balance;
             public int PremiumBalance;
             public Dictionary<DogStates.DogName, int> DogCounter = new Dictionary<DogStates.DogName, int>();
             public Dictionary<ItemStates.ItemName, int> ItemInventory = new Dictionary<ItemStates.ItemName, int>();
-            public Dictionary<ItemStates.FolliageName, int> TreeInventory = new Dictionary<ItemStates.FolliageName, int>();
         }
         
-        //Extra data that is only stored localy
-        class TransformPlayerData
+        //Extra data that is only stored locally
+        public class TransformPlayerData
         {
             public Dictionary<DogStates.DogName, int[]> DogPositions = new Dictionary<DogStates.DogName, int[]>();
-            public Dictionary<ItemStates.ItemName, int[]> ItemInventory= new Dictionary<ItemStates.ItemName, int[]>();
-            List<KeyValuePair<ItemStates.FolliageName, int[]>> TreeInventory = new List<KeyValuePair<ItemStates.FolliageName, int[]>>(); //can be multiple
+            public List<InventoryManager.ItemData> ItemInventory = new List<InventoryManager.ItemData>();
         }
         
         private const string  Transform_Data = "TransformPlayerData";
         private const string  Player_Data = "PlayerData";
         private const string  Cloud_TS = "LastCloudSave";
         
-        private PlayerData _playerData;
-        private TransformPlayerData _transformPlayerData;
+        public PlayerData _playerData {private set; get; }
+        public TransformPlayerData _transformPlayerData {private set; get; }
 
 
         public void UpdateBalance(int balance)

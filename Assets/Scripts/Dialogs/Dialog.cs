@@ -12,7 +12,6 @@ namespace Dialogs
 
         void Awake()
         {
-            Debug.Log("added");
             CloseButton.onClick.AddListener(Close);
         }
         
@@ -23,7 +22,6 @@ namespace Dialogs
 
         protected void Close()
         {
-            Debug.Log("close");
             PopupManager.Instance.Close(Name);
         }
     }
