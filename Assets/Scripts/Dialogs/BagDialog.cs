@@ -18,7 +18,7 @@ namespace Dialogs
             foreach (var item in InventoryManager.Instance.itemInventory)
             {
                 var obj =Instantiate(_itemSlotPrefab, _LayoutParent);
-                obj.GetComponent<BagItem>().init(allItems[item]);
+                obj.GetComponent<BagItem>().Init(allItems[item]);
             }
         }
     }

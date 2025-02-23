@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Events;
+using Managers;
+using Scriptable_objects.Items;
 using UnityEngine.UI;
 
 namespace Scenes
@@ -8,19 +10,25 @@ namespace Scenes
     public class GameView : MonoSingle<GameView>
     {
        
-        [SerializeField] Transform _itemLayer;
-        [SerializeField] Transform _editLayer;
+        [SerializeField] Transform itemLayer;
+        [SerializeField] Transform editLayer;
         
-        [SerializeField] ScrollRect _scroll;
+        [SerializeField] ScrollRect scroll;
+        
+        [SerializeField] GameObject itemPrefab;
 
 
 
         private bool _editMode = false;
 
 
-        public void StartEditModeWithObject()
+        public void StartEditModeWithObject(ItemHolder item)
         {
+            InventoryManager.Instance.RemoveToPlace(item.key, editLayer.position);
             //spawn object
+            var obj = Instantiate(itemPrefab, editLayer);
+            var newItem = obj.GetComponent<UI_Item>();
+            newItem.SpawnFromItem(item);
             
             //Reset scroll rect
             StartEditMode();

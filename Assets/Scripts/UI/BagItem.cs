@@ -1,3 +1,5 @@
+using Managers;
+using Scenes;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,8 +11,11 @@ namespace UI
         [SerializeField] Image sprite;
         [SerializeField] Image shadow;
 
-        public void init(ItemHolder itemInfo)
+        private ItemHolder item;
+
+        public void Init(ItemHolder itemInfo)
         {
+            item = itemInfo;
             if (itemInfo.sprite == null)
             {
                 DiableSlot();
@@ -20,6 +25,14 @@ namespace UI
             sprite.sprite = itemInfo.sprite;
             shadow.sprite  = itemInfo.sprite;
             
+        }
+        
+        //Called by button
+        public void PlaceItem()
+        {
+            //Item is removed from invention by the game view
+            GameView.Instance.StartEditModeWithObject(item);
+            PopupManager.Instance.Close(PopupManager.DialogName.Bag);
         }
 
 

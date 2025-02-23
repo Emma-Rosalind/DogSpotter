@@ -465,7 +465,7 @@ MonoBehaviour:
   icon: {fileID: 7108660972463011461}
   dogAnchor: {fileID: 7756693600272646560}
   colliders: []
-  _editButtons: {fileID: 0}
+  _editButtons: {fileID: 8320538942644915787}
 --- !u!1 &5808313103441814988
 GameObject:
   m_ObjectHideFlags: 0

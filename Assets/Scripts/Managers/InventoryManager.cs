@@ -55,6 +55,15 @@ namespace Managers
         {
             itemInventory.Add(key);
         }
+        
+        public void RemoveToPlace(ItemStates.ItemName key, Vector2 place)
+        {
+            var item = new ItemData();
+            item.key = key;
+            item.position = place;
+            itemsPlaced.Add(item);
+            itemInventory.Remove(key);
+        }
 
     }
 }

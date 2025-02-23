@@ -1461,9 +1461,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554e08b2a5614b63a546c2a8ff217b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemLayer: {fileID: 0}
-  _editLayer: {fileID: 0}
-  _scroll: {fileID: 0}
+  itemLayer: {fileID: 664847673}
+  editLayer: {fileID: 884387233}
+  scroll: {fileID: 8374599101696223139}
+  itemPrefab: {fileID: 3707093958375536589, guid: d8cb37b59e2155541b46a00b515fb1b9, type: 3}
 --- !u!1 &2630695749817642452
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,21 +1614,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2630695749817642452}
   m_CullTransparentMesh: 1
---- !u!114 &4293518813936517883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9141229423185688407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 554e08b2a5614b63a546c2a8ff217b6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _itemLayer: {fileID: 0}
-  _editLayer: {fileID: 0}
-  _scroll: {fileID: 0}
 --- !u!1 &4522419552251119380
 GameObject:
   m_ObjectHideFlags: 0
@@ -2726,7 +2712,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7079503018651321386}
-  - component: {fileID: 4293518813936517883}
   - component: {fileID: 6133599117312622774}
   - component: {fileID: 4735871437712703584}
   m_Layer: 5
