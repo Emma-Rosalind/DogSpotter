@@ -383,6 +383,7 @@ GameObject:
   - component: {fileID: 4622302490032465481}
   - component: {fileID: 7108660972463011461}
   - component: {fileID: 1980222616156144465}
+  - component: {fileID: 5359198668432947565}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -465,7 +466,20 @@ MonoBehaviour:
   icon: {fileID: 7108660972463011461}
   dogAnchor: {fileID: 7756693600272646560}
   colliders: []
-  _editButtons: {fileID: 8320538942644915787}
+  dragHandler: {fileID: 5359198668432947565}
+  editButtons: {fileID: 8320538942644915787}
+--- !u!114 &5359198668432947565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3707093958375536589}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a60b9a00d7b544d096d455f0d1282612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5808313103441814988
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using Managers;
 using Scenes;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace UI
@@ -40,5 +41,6 @@ namespace UI
         {
             sprite.sprite .GameObject().SetActive(false);
         }
+        
     }
 }

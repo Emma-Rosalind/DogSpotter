@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,11 +12,10 @@ namespace Scriptable_objects.Items
         [SerializeField] private Transform dogAnchor;
         
         [SerializeField] private List<CircleCollider2D> colliders = new List<CircleCollider2D>();
+        [SerializeField] private DragableItem dragHandler;
         
-        [SerializeField] private GameObject _editButtons;
+        [SerializeField] private GameObject editButtons;
         
-        
-        private bool _editMode = false;
 
         private void Init()
         {
@@ -42,19 +42,24 @@ namespace Scriptable_objects.Items
 
         private void TurnOffEdit()
         {
-            _editMode = false; 
-            _editButtons.SetActive(false);
+            editButtons.SetActive(false);
+            dragHandler.enabled = false;
         }
         
         private void TurnOnEdit()
         {
-            _editMode = true; 
-            _editButtons.SetActive(true);
+            editButtons.SetActive(true);
+            dragHandler.enabled = true;
         }
 
         private void OnEditModeEntry()
         {
             //make selectable
+        }
+        
+        private void OnOtherItemSelected()
+        {
+            TurnOffEdit();
         }
     }
 }

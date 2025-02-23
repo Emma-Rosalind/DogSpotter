@@ -29,7 +29,7 @@ namespace Scenes
             var obj = Instantiate(itemPrefab, editLayer);
             var newItem = obj.GetComponent<UI_Item>();
             newItem.SpawnFromItem(item);
-            
+              
             //Reset scroll rect
             StartEditMode();
         }
