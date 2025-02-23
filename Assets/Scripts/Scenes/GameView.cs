@@ -36,13 +36,13 @@ namespace Scenes
         
         public void StartEditMode()
         {
-            //send event
+            GameEvent.EditMode.Invoke(true);
             _editMode = true;
         }
         
-        private void EndEditMode()
+        public void EndEditMode()
         {
-            //send event
+            GameEvent.EditMode.Invoke(false);
             _editMode = false;
         }
         

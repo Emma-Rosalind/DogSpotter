@@ -6,8 +6,8 @@ namespace Events
     public static class GameEvent 
     {
         //Scene movement
-        public static UnityEvent m_ToKitchen = new UnityEvent();
-        public static UnityEvent m_ToCafe = new UnityEvent();
+        public static UnityEvent<bool> EditMode = new UnityEvent<bool> ();
+        public static UnityEvent EditItemSelected = new UnityEvent ();
         
         
         //Balance

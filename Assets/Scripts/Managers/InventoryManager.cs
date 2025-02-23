@@ -77,6 +77,13 @@ namespace Managers
             
             return count;
         }
+        
+        public void UpdateFromFloor(ItemStates.ItemName key, int id, Vector2 position)
+        {
+            itemInventory.Add(key);
+            var item = itemsPlaced.First(x => x.id == id);
+            item.position = position;
+        }
 
     }
 }

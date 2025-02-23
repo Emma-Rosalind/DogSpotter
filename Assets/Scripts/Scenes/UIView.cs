@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Components;
 using UnityEngine;
 using UnityEngine.UI;
 using Events;
+using Unity.VisualScripting;
 
 namespace Scenes
 {
@@ -12,8 +14,19 @@ namespace Scenes
         [SerializeField] private GameObject _topBar;
         [SerializeField] private GameObject _sideBar;
         [SerializeField] private GameObject _editBar;
-        
-        public void StartEditMode()
+
+        private void Start()
+        {
+            GameEvent.EditMode.AddListener(OnEditChange);
+        }
+
+        private void OnEditChange(bool value)
+        {
+            if (value) StartEditMode();
+            if (!value) EndEditMode();
+        }
+
+        private void StartEditMode()
         {
             _topBar.SetActive(false);
             _sideBar.SetActive(false);
@@ -25,6 +38,11 @@ namespace Scenes
             _topBar.SetActive(true);
             _sideBar.SetActive(true);
             _editBar.SetActive(false);
+        }
+
+        public void OnEditBackClicked()
+        {
+            GameView.Instance.EndEditMode();
         }
 
     }
