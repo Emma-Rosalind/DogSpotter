@@ -43,6 +43,13 @@ namespace Managers
             StorePlayerData(needsCloud);
         }
         
+        public void UpdateItems(bool needsCloud = false)
+        {
+            _playerData.ItemInventory = InventoryManager.Instance.GetOwnedItems();
+            _transformPlayerData.ItemInventory = InventoryManager.Instance.GetPlacedItems();
+            StorePlayerData(needsCloud);
+        }
+        
         public void UpdateDogPos(DogStates.DogName dogName, Transform pos)
         {
            var array = new int[2] {(int)pos.position.x, (int)pos.position.y};

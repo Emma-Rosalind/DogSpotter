@@ -14,9 +14,7 @@ namespace Managers
         [HideInInspector] public List<ItemData> itemsPlaced  { private set; get; }
         //Items not places
         [HideInInspector] public List<ItemStates.ItemName> itemInventory { private set; get; }
-
-
-        [SerializeField]
+        
         public class ItemData
         {
             public ItemStates.ItemName key;
@@ -37,31 +35,29 @@ namespace Managers
             }
             
             //Create inventory tracking
-            //foreach (var item in PlayerDataManager.Instance._playerData.itemInventory)
-            //{
-            //    itemInventory.Add(item.Key);
-           // }
+            foreach (var item in PlayerDataManager.Instance._playerData.ItemInventory)
+            {
+                itemInventory.Add(item.Key);
+            }
             
-           // foreach (var item in PlayerDataManager.Instance._transformPlayerData.itemInventory)
-            //{
-            //    itemsPlaced.Add(item);
-            //    itemInventory.Remove(item.key);
-           // }
-            
-            //Temp while no player data
-            AddToInventoryFromShop(ItemStates.ItemName.BlueCarpet);
-            AddToInventoryFromShop(ItemStates.ItemName.PinkCarpet);
-
+            //remove placed items
+            foreach (var item in PlayerDataManager.Instance._transformPlayerData.ItemInventory)
+            {
+                itemsPlaced.Add(item);
+                itemInventory.Remove(item.key);
+            }
         }
         
         public void AddToInventoryFromShop(ItemStates.ItemName key)
         {
+            Debug.Log("Add to Inventory From Shop: " + key);
             itemInventory.Add(key);
         }
         
         public void AddToInventoryFromFloor(ItemStates.ItemName key, int id)
         {
             itemInventory.Add(key);
+            Debug.Log("Add to Inventory From Shop: " + key);
             var item = itemsPlaced.First(x => x.id == id);
             itemsPlaced.Remove(item);
         }
@@ -75,15 +71,36 @@ namespace Managers
             item.id = count;
             itemsPlaced.Add(item);
             itemInventory.Remove(key);
+            Debug.Log("Remove from Inventory: " + key);
             
             return count;
         }
         
         public void UpdateFromFloor(ItemStates.ItemName key, int id, Vector2 position)
         {
-            itemInventory.Add(key);
             var item = itemsPlaced.First(x => x.id == id);
             item.position = position;
+        }
+
+        public Dictionary<ItemStates.ItemName, int> GetOwnedItems()
+        {
+            var dict = new Dictionary<ItemStates.ItemName, int>();
+            foreach (var itemName in itemInventory.Where(itemName => !dict.TryAdd(itemName, 1)))
+            {
+                dict[itemName] += 1;
+            }
+            
+            foreach (var item in itemsPlaced.Where(item => !dict.TryAdd(item.key, 1)))
+            {
+                dict[item.key] += 1;
+            }
+            
+            return dict;
+        }
+        
+        public List<ItemData> GetPlacedItems()
+        {
+            return itemsPlaced;
         }
 
     }

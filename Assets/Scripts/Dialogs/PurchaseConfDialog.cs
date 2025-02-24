@@ -32,6 +32,7 @@ namespace Dialogs
             BalanceManager.Instance.BuyItem(_item.GetPrice(),  _item.PriceInTreats());
             PopupManager.Instance.Close(PopupManager.DialogName.Store);
             PopupManager.Instance.Close(Name);
+            InventoryManager.Instance.AddToInventoryFromShop(_item.key);
             GameView.Instance.StartEditModeWithObject(_item);
         }
         
