@@ -25,6 +25,7 @@ namespace Dialogs
 
             bodyText += $"{_item.name} for {numPrice} {(isTreat ? "treats" : "good boy points" )}?";
             body.text = bodyText;
+            PopupManager.Instance.Hide(PopupManager.DialogName.Store);
         }
 
         public void OnYesClicked()
@@ -38,6 +39,7 @@ namespace Dialogs
         
         public void OnNoClicked()
         {
+            PopupManager.Instance.Show(PopupManager.DialogName.Store);
             PopupManager.Instance.Close(Name);
         }
     }

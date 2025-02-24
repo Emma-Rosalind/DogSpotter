@@ -59,6 +59,19 @@ public class PopupManager : MonoSingle<PopupManager>
         
         if(_openDialogs.Count <= 0) scrim.SetActive(false);
     }
+
+    public void Hide(DialogName dialogName)
+    {
+        if (!_openDialogs.ContainsKey(dialogName)) return;
+        
+        _openDialogs[dialogName].gameObject.SetActive(false);
+    }
+    public void Show(DialogName dialogName)
+    {
+        if (!_openDialogs.ContainsKey(dialogName)) return;
+        
+        _openDialogs[dialogName].gameObject.SetActive(true);
+    }
     
     private bool IsOpen(DialogName dialogName)
     {

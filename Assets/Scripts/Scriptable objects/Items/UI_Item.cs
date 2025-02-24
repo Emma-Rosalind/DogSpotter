@@ -110,10 +110,11 @@ namespace Scriptable_objects.Items
                     selectButton.onClick.AddListener(SelectForEdit);
                 }
             }
-            else if(editing)
+            else
             {
+                selectButton.onClick.RemoveAllListeners();
                 selectButton.enabled = false;
-                TurnOffAndAttemptPlace();
+                if (editing) TurnOffAndAttemptPlace();
             }
         }
 

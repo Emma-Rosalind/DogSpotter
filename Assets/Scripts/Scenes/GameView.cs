@@ -20,7 +20,14 @@ namespace Scenes
 
 
         private bool _editMode = false;
+        private float _ogVertPos;
+        private float _ogHoriPos;
 
+        void Start()
+        {
+            _ogVertPos = scroll.verticalNormalizedPosition;
+            _ogHoriPos = scroll.horizontalNormalizedPosition;
+        }
 
         public void StartEditModeWithObject(ItemHolder item)
         {
@@ -31,6 +38,8 @@ namespace Scenes
             newItem.SpawnFromItem(item, id);
               
             //Reset scroll rect
+            scroll.verticalNormalizedPosition = _ogVertPos;
+            scroll.horizontalNormalizedPosition = _ogHoriPos;
             StartEditMode();
         }
         
