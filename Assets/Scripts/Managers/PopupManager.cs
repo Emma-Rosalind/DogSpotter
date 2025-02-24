@@ -40,13 +40,14 @@ public class PopupManager : MonoSingle<PopupManager>
         }
     }
 
-    public void Open(DialogName dialogName)
+    public GameObject Open(DialogName dialogName)
     {
-        if (IsOpen(dialogName) || !_dialogIndex.ContainsKey(dialogName)) return;
+        if (IsOpen(dialogName) || !_dialogIndex.ContainsKey(dialogName)) return null;
         
         var obj = Instantiate(_dialogIndex[dialogName], popupContainer);
         _openDialogs.Add(dialogName, obj);
         scrim.SetActive(true);
+        return obj;
     }
     
     public void Close(DialogName dialogName)

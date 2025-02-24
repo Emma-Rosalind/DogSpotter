@@ -8,11 +8,10 @@ public class BalanceManager : MonoSingle<BalanceManager>
     public int balance {get; private set; }
     public int treatBalance {get; private set; }
     
-    private string  BALANCE = "Balance";
     void Start()
     {
         balance = PlayerDataManager.Instance._playerData.Balance;
-        balance = PlayerDataManager.Instance._playerData.PremiumBalance;
+        treatBalance = PlayerDataManager.Instance._playerData.PremiumBalance;
         GameEvent.m_BalanceChange.Invoke();
     }
 

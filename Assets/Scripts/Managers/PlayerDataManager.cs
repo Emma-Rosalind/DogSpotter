@@ -23,9 +23,9 @@ namespace Managers
             public List<InventoryManager.ItemData> ItemInventory = new List<InventoryManager.ItemData>();
         }
         
-        private const string  Transform_Data = "TransformPlayerData";
+        private const string  TransformData = "TransformPlayerData";
         private const string  Player_Data = "PlayerData";
-        private const string  Cloud_TS = "LastCloudSave";
+        private const string  CloudTs = "LastCloudSave";
         
         public PlayerData _playerData {private set; get; }
         public TransformPlayerData _transformPlayerData {private set; get; }
@@ -55,19 +55,28 @@ namespace Managers
             _transformPlayerData.DogPositions.Remove(dogName);
             StorePlayerData();
         }
-        
-        public bool LoadPlayerData()
+
+        public void LoadPlayerData()
         {
-            if (!ReadLocalPlayerData())
+            if (ReadLocalPlayerData()) return;
+            
+            //may be a new user, check online
+            if (ReadOnlinePlayerData())
             {
-                //Try to load from online
-                _playerData = new PlayerData();
-                _transformPlayerData = new TransformPlayerData();
-                return false;
+                //copy online data to local
+                StorePlayerData(false);
             }
             else
             {
-                return true;
+                //make a new user
+                _playerData = new PlayerData()
+                {
+                    Balance = 200,
+                    PremiumBalance = 10,
+                };
+                _transformPlayerData = new TransformPlayerData();
+                StorePlayerData(false);
+                Debug.Log("New User Made");
             }
         }
 
@@ -78,8 +87,14 @@ namespace Managers
             if (!PlayerPrefs.HasKey(Player_Data)) return false;
             
             _playerData= JsonUtility.FromJson<PlayerData>(PlayerPrefs.GetString(Player_Data));
-            _transformPlayerData = JsonUtility.FromJson<TransformPlayerData>(PlayerPrefs.GetString(Transform_Data));
+            _transformPlayerData = JsonUtility.FromJson<TransformPlayerData>(PlayerPrefs.GetString(TransformData));
+            Debug.Log("Loaded Player Data Locally");
             return true;
+        }
+        
+        private bool ReadOnlinePlayerData()
+        {
+            return false;
         }
 
         private void StorePlayerData(bool forceOnlineSave = true)
@@ -88,7 +103,7 @@ namespace Managers
             var posString = JsonUtility.ToJson(_transformPlayerData);
             
             PlayerPrefs.SetString(Player_Data, playerString);
-            PlayerPrefs.SetString(Transform_Data, posString);
+            PlayerPrefs.SetString(TransformData, posString);
             PlayerPrefs.Save();
 
             if (forceOnlineSave || TimeToUpdateOnline())

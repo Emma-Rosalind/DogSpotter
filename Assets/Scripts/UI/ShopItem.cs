@@ -1,3 +1,4 @@
+using Dialogs;
 using Managers;
 using Scenes;
 using TMPro;
@@ -53,7 +54,11 @@ namespace UI
             if (isTreat && numPrice > BalanceManager.Instance.treatBalance) return;
             if (!isTreat && numPrice > BalanceManager.Instance.balance) return;
             
-            PopupManager.Instance.Open(PopupManager.DialogName.PurchaseConfirm);
+            var pop = PopupManager.Instance.Open(PopupManager.DialogName.PurchaseConfirm);
+            if (pop != null)
+            {
+                pop.GetComponent<PurchaseConfDialog>().Init(item);
+            }
         }
 
 

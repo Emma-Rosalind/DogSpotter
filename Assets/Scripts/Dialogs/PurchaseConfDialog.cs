@@ -1,5 +1,6 @@
 using System;
 using Managers;
+using Scenes;
 using TMPro;
 using UI;
 using UnityEngine;
@@ -29,7 +30,9 @@ namespace Dialogs
         public void OnYesClicked()
         {
             BalanceManager.Instance.BuyItem(_item.GetPrice(),  _item.PriceInTreats());
+            PopupManager.Instance.Close(PopupManager.DialogName.Store);
             PopupManager.Instance.Close(Name);
+            GameView.Instance.StartEditModeWithObject(_item);
         }
         
         public void OnNoClicked()

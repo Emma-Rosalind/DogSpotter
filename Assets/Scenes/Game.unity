@@ -1997,6 +1997,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7815282503281036545}
   - component: {fileID: 749028559462776563}
+  - component: {fileID: 7815282503281036546}
   m_Layer: 5
   m_Name: TopBar
   m_TagString: Untagged
@@ -2569,6 +2570,20 @@ RectTransform:
   m_AnchoredPosition: {x: -1.4827881, y: -38}
   m_SizeDelta: {x: 110.7911, y: 99.0951}
   m_Pivot: {x: 0.5, y: 0.6825605}
+--- !u!114 &7815282503281036546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4522419552251119380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b9be865b99f48a78290ea8c8ec6d468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  balanceText: {fileID: 5998146470555381536}
+  balanceTreatText: {fileID: 2102244310093549980}
 --- !u!114 &7816514140734758090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2611,7 +2626,7 @@ GameObject:
   - component: {fileID: 1931768512652824366}
   - component: {fileID: 6871300544293072529}
   m_Layer: 5
-  m_Name: BlanceBar (1)
+  m_Name: BlanceBar Treats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3097,7 +3112,7 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1392084635}
   - {fileID: 2057035722}
   - {fileID: 354987195}
   - {fileID: 4621613202943827121}
-  - {fileID: 1392084635}
