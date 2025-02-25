@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Events;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace Managers
@@ -93,9 +94,11 @@ namespace Managers
         {
             if (!PlayerPrefs.HasKey(Player_Data)) return false;
             
-            _playerData= JsonUtility.FromJson<PlayerData>(PlayerPrefs.GetString(Player_Data));
-            _transformPlayerData = JsonUtility.FromJson<TransformPlayerData>(PlayerPrefs.GetString(TransformData));
+            _playerData= JsonConvert.DeserializeObject<PlayerData>(PlayerPrefs.GetString(Player_Data));
+            _transformPlayerData = JsonConvert.DeserializeObject<TransformPlayerData>(PlayerPrefs.GetString(TransformData));
             Debug.Log("Loaded Player Data Locally");
+            Debug.Log("Loaded Transforms: " + PlayerPrefs.GetString(TransformData));
+            Debug.Log("Loaded Player: " + PlayerPrefs.GetString(Player_Data));
             return true;
         }
         
@@ -106,9 +109,11 @@ namespace Managers
 
         private void StorePlayerData(bool forceOnlineSave = true)
         {
-            var playerString = JsonUtility.ToJson(_playerData);
-            var posString = JsonUtility.ToJson(_transformPlayerData);
-            
+            Debug.Log("New data stored");
+            var playerString = JsonConvert.SerializeObject(_playerData);
+            var posString = JsonConvert.SerializeObject(_transformPlayerData);
+            Debug.Log("Stored Player: " + playerString);
+            Debug.Log("Stored Transforms: " + posString);
             PlayerPrefs.SetString(Player_Data, playerString);
             PlayerPrefs.SetString(TransformData, posString);
             PlayerPrefs.Save();
