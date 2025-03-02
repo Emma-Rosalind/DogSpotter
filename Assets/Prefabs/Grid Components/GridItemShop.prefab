@@ -460,7 +460,7 @@ MonoBehaviour:
   shadow: {fileID: 212597720624714049}
   price: {fileID: 3249559391981197824}
   coin: {fileID: 7162224376125051426}
-  bone: {fileID: 5199979006384268662, guid: d345adfa9dc790e449eabdf1abb593cb, type: 3}
+  bone: {fileID: 7553835203902197830, guid: d462a845685d9554ba8d2e3d76bb6d37, type: 3}
 --- !u!1 &5503036397437405356
 GameObject:
   m_ObjectHideFlags: 0

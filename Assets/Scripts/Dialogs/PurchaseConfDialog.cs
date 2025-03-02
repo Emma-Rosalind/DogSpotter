@@ -4,6 +4,7 @@ using Scenes;
 using TMPro;
 using UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Dialogs
 {
@@ -11,9 +12,12 @@ namespace Dialogs
     {
         
         [SerializeField] private TextMeshProUGUI body;
+        [SerializeField] private TextMeshProUGUI price;
+        [SerializeField] private Image priceIcon;
+        [SerializeField] private Sprite treat;
         public override PopupManager.DialogName Name => PopupManager.DialogName.PurchaseConfirm;
         
-        private const string textBase = "Would you like to purchase ";
+        private const string textBase = "Would you like to buy ";
         private ItemHolder _item;
 
         public void Init(ItemHolder itemHolder)
@@ -21,10 +25,12 @@ namespace Dialogs
             _item = itemHolder;
             var bodyText = textBase;
             var numPrice = _item.GetPrice();
-            var isTreat = _item.PriceInTreats();
 
-            bodyText += $"{_item.name} for {numPrice} {(isTreat ? "treats" : "good boy points" )}?";
+            bodyText += $"{_item.name} for ";
             body.text = bodyText;
+            price.text = numPrice.ToString();
+            if (_item.PriceInTreats()) priceIcon.sprite = treat;
+                
             PopupManager.Instance.Hide(PopupManager.DialogName.Store);
         }
 
