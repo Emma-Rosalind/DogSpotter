@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Events;
 using Newtonsoft.Json;
@@ -13,6 +14,7 @@ namespace Managers
         {
             public int Balance;
             public int PremiumBalance;
+            public DateTime Saved;
             public Dictionary<DogStates.DogName, int> DogCounter = new Dictionary<DogStates.DogName, int>();
             public Dictionary<ItemStates.ItemName, int> ItemInventory = new Dictionary<ItemStates.ItemName, int>();
         }
@@ -127,12 +129,16 @@ namespace Managers
 
         private bool TimeToUpdateOnline()
         {
-            return false;
+            //Save weekly
+            var now = DateTime.UtcNow;
+            var twoDaysSinceLastSave = _playerData.Saved.AddDays(7);
+            return now > twoDaysSinceLastSave;
         }
 
         private void StorePlayerDataOnline()
         {
             //Update online player data
+            _playerData.Saved = DateTime.UtcNow;
 
         }
         
