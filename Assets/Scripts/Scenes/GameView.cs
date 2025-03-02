@@ -43,6 +43,18 @@ namespace Scenes
             StartEditMode();
         }
         
+        public void PlaceItemsOnStart(List<InventoryManager.ItemData> itemsPlaced )
+        {
+            foreach (var item in itemsPlaced)
+            {
+                //spawn object
+                var obj = Instantiate(itemPrefab, editLayer);
+                obj.transform.position = new Vector3(item.position[0], item.position[1]);
+                var newItem = obj.GetComponent<UI_Item>();
+                newItem.SpawnOnStart(InventoryManager.Instance.GetItemHolder(item.key), item.id);
+            }
+        }
+        
         public void StartEditMode()
         {
             GameEvent.EditMode.Invoke(true);

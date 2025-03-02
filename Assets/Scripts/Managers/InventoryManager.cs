@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Events;
+using Scenes;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Managers
@@ -39,17 +41,22 @@ namespace Managers
             //Create inventory tracking
             foreach (var item in PlayerDataManager.Instance._playerData.ItemInventory)
             {
-                Debug.Log("Added from loading: " + item.Key);
-                itemInventory.Add(item.Key);
+                Debug.Log($"Added from {item.Value} loading: {item.Key}");
+                for (var i = 0; i <item.Value; i++ )
+                {
+                    itemInventory.Add(item.Key);
+                }
             }
             
             //remove placed items
             foreach (var item in PlayerDataManager.Instance._transformPlayerData.ItemInventory)
             {
-                Debug.Log("Placed from loading: " + item.key);
+                Debug.Log($"Placed from loading: {item.key}");
                 itemsPlaced.Add(item);
                 itemInventory.Remove(item.key);
             }
+            
+            GameView.Instance.PlaceItemsOnStart(itemsPlaced);
         }
         
         public void AddToInventoryFromShop(ItemStates.ItemName key)
@@ -112,6 +119,12 @@ namespace Managers
         public List<ItemData> GetPlacedItems()
         {
             return itemsPlaced;
+        }
+
+
+        public ItemHolder GetItemHolder(ItemStates.ItemName key)
+        {
+            return _allItemsDic.ContainsKey(key) ? _allItemsDic[key] : null;
         }
 
     }

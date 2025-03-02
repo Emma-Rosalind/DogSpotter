@@ -55,6 +55,13 @@ namespace Scriptable_objects.Items
             selectButton.enabled = true;
         }
         
+        public void SpawnOnStart(ItemHolder info, int id)
+        {
+            _itemInfo = info;
+            _id = id;
+            Init();
+        }
+        
         
         private void SelectForEdit()
         {
