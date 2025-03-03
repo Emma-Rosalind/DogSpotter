@@ -29,4 +29,5 @@ public class LoadingManager : MonoSingle<LoadingManager>
     {
         PlayerDataManager.Instance.LoadPlayerData();
     }
+    
 }

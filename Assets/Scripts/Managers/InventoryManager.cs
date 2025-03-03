@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Events;
@@ -22,6 +23,7 @@ namespace Managers
             public ItemStates.ItemName key;
             public int[] position;
             public int id;
+            public DogManager.DogData dog;
         }
         
 
@@ -35,9 +37,12 @@ namespace Managers
             {
                 _allItemsDic.Add(item.key, item);
             }
+        }
 
+        public List<ItemData> LoadInventory()
+        {
             Debug.Log("Loading inventory");
-            
+                        
             //Create inventory tracking
             foreach (var item in PlayerDataManager.Instance._playerData.ItemInventory)
             {
@@ -56,8 +61,9 @@ namespace Managers
                 itemInventory.Remove(item.key);
             }
             
-            GameView.Instance.PlaceItemsOnStart(itemsPlaced);
+            return itemsPlaced;
         }
+        
         
         public void AddToInventoryFromShop(ItemStates.ItemName key)
         {

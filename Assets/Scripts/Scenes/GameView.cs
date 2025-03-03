@@ -27,6 +27,13 @@ namespace Scenes
         {
             _ogVertPos = scroll.verticalNormalizedPosition;
             _ogHoriPos = scroll.horizontalNormalizedPosition;
+    
+            //Gameview loading steps, move later
+            var placementData = InventoryManager.Instance.LoadInventory();
+            PlaceItemsOnStart(placementData);
+            var missedDogs =  DogManager.Instance.LoadDogs();
+            DogManager.Instance.AddNewDogs();
+            //send missed dogs to ui view
         }
 
         public void StartEditModeWithObject(ItemHolder item)
