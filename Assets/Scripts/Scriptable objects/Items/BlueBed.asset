@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86249e1849f442c49ee4de8673c7de1f, type: 3}
   m_Name: BlueBed
   m_EditorClassIdentifier: 
-  sprite: {fileID: 3163558430974303233, guid: 5ce06896ecf493644b935a052f832996, type: 3}
+  sprite: {fileID: 21300000, guid: 5ce06896ecf493644b935a052f832996, type: 3}
   key: 2
   fullName: Blue Shag
   desciption: Its kinda fuzzy

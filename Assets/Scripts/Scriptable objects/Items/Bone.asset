@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86249e1849f442c49ee4de8673c7de1f, type: 3}
-  m_Name: Ball
+  m_Name: Bone
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: afa5d84ad08446c41b5e28f0bfc1994d, type: 3}
-  key: 0
-  fullName: Yellow Ball
-  desciption: Its round
-  coinPrice: 10
+  sprite: {fileID: 21300000, guid: a2bfef4bf18d1e9479ef1275c6c4a818, type: 3}
+  key: 3
+  fullName: Small bone
+  desciption: dogs love it
+  coinPrice: 15
   treatPrice: 0

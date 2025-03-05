@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5ce06896ecf493644b935a052f832996
+guid: a2bfef4bf18d1e9479ef1275c6c4a818
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3163558430974303233
-    second: pillow2_0
+      213: 7553835203902197830
+    second: bone_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pillow2_0
+      name: bone_0
       rect:
         serializedVersion: 2
-        x: 124
-        y: 10
-        width: 414
-        height: 168
+        x: 274
+        y: 207
+        width: 204
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 10c5a68b1a737eb20800000000000000
-      internalID: 3163558430974303233
+      spriteID: 6405e64981d94d860800000000000000
+      internalID: 7553835203902197830
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pillow2_0: 3163558430974303233
+      bone_0: 7553835203902197830
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

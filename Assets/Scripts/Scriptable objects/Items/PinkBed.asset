@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86249e1849f442c49ee4de8673c7de1f, type: 3}
   m_Name: PinkBed
   m_EditorClassIdentifier: 
-  sprite: {fileID: -9099686267126144895, guid: 4492a343929a4254a923da1c05d88d53, type: 3}
+  sprite: {fileID: 21300000, guid: 4492a343929a4254a923da1c05d88d53, type: 3}
   key: 1
   fullName: Pink Shag
   desciption: Fuzzy but pink

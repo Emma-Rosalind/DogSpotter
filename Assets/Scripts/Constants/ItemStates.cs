@@ -1,7 +1,5 @@
 using UnityEngine;
 
-namespace Events
-{
     public static class ItemStates 
     {
         public enum ItemName
@@ -9,13 +7,8 @@ namespace Events
             Ball = 0,
             PinkCarpet = 1,
             BlueCarpet = 2,
-        }
-        
-        public enum FolliageName
-        {
-            TreeA = 0,
-            FlowerA = 1,
-        }
+            Bone = 3,
+            Box = 4,
 
     }
 }
