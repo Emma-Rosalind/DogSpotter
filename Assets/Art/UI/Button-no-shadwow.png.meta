@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f8c847725e5b9ef488ad1fed1014c84e
+guid: ee6667590741ee44dad8ed601cee4738
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2994099740922410003
-    second: Butto_0
+      213: 1250018581831144890
+    second: Button-no-shadwow_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 26, y: 31, z: 25, w: 28}
+  spriteBorder: {x: 27, y: 26, z: 28, w: 27}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Butto_0
+      name: Button-no-shadwow_0
       rect:
         serializedVersion: 2
         x: 0
@@ -135,14 +135,14 @@ TextureImporter:
         height: 86
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 28, y: 28, z: 28, w: 27}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: deb0b382622d276d0800000000000000
-      internalID: -2994099740922410003
+      spriteID: ab5deacf645f85110800000000000000
+      internalID: 1250018581831144890
       vertices: []
       indices: 
       edges: []
@@ -151,8 +151,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b883aadef486fa34285557a0e25c4dcb
-    internalID: -1940158860
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Butto_0: -2994099740922410003
+      Button-no-shadwow_0: 1250018581831144890
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
